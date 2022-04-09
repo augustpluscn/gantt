@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::namespace ('App\Http\Controllers\Api')->group(function () {
+Route::namespace ('App\Http\Controllers\Api')->middleware(['change.db'])->group(function () {
     //数据字典
-    Route::any('dd1', 'DdController@getDd');
+    Route::any('task', 'TaskController@taskList');
 });
 
 Route::namespace ('App\Http\Controllers\Api')->prefix('auth')->group(function () {
