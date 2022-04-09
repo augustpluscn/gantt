@@ -173,7 +173,7 @@ export default {
 
 <style scoped>
 #ganttastic-wrapper {
-  height: 50vh;
+  height: 100%;
   overflow-y: auto;
 }
 </style>
