@@ -10,6 +10,7 @@ class TaskController extends Controller
     {
         $task = DB::connection('cus')
             ->table('V_task_detail')
+            ->orderBy("机台名称")
             ->orderBy("机台系统编号")
             ->orderBy("排序")
             ->get();
