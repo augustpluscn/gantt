@@ -6,9 +6,9 @@ import store from './store'
 import '@/assets/css/index.scss'
 
 // 全局引入按需引入UI库 vant
-import '@/plugins/vant'
+// import '@/plugins/vant'
 //权限
-import '@/permission'
+// import '@/permission'
 
 Vue.config.productionTip = false
 
