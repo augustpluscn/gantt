@@ -5,6 +5,7 @@ import store from './store'
 // 引入全局样式
 import '@/assets/css/index.scss'
 
+import vuetify from '@/plugins/vuetify'
 // 全局引入按需引入UI库 vant
 // import '@/plugins/vant'
 //权限
@@ -15,5 +16,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
+  vuetify,
   render: h => h(App)
 }).$mount('#app')

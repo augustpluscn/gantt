@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-app="true">
     <div id="ganttastic-wrapper">
       <g-gantt-chart
         :chart-start="chartStart"
@@ -33,6 +33,16 @@
         </g-gantt-row>
       </g-gantt-chart>
     </div>
+    <v-menu
+      v-model="showContextmenu"
+      :position-x="contextmenuX"
+      :position-y="contextmenuY">
+      <v-list>
+        <v-list-item>
+          {{menuContext}}
+        </v-list-item>
+      </v-list>
+    </v-menu>
   </div>
 </template>
 
@@ -64,7 +74,8 @@ export default {
       contextmenuY: 0,
       selectedTheme: "default",
       rowList: [],
-      bgColor: ["#404040", "#2e74a3", "#de3b26", "aa34a3"]
+      bgColor: ["#404040", "#2e74a3", "#de3b26", "aa34a3"],
+      menuContext: ""
     };
   },
   computed: {},
@@ -75,15 +86,16 @@ export default {
     stoppedDraggingBar() {},
     onContextmenuBar(e) {
       e.event.preventDefault();
+      this.menuContext = e.bar.label;
       this.contextmenuY = e.event.clientY;
       this.contextmenuX = e.event.clientX;
       this.showContextmenu = true;
       if (this.contextmenuTimeout) {
         clearTimeout(this.contextmenuTimeout);
       }
-      setTimeout(() => {
-        this.showContextmenu = false;
-      }, 3000);
+      // setTimeout(() => {
+      //   this.showContextmenu = false;
+      // }, 3000);
     },
     getTask() {
       Api.getTask().then(res => {
