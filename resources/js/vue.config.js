@@ -3,4 +3,12 @@ module.exports = {
   indexPath: process.env.NODE_ENV === 'production'
     ? '../resources/views/app.blade.php'
     : 'index.html',
+  chainWebpack: config => {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title = '甘特图'
+        return args
+      })
+  }
 };
