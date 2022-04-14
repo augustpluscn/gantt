@@ -25,7 +25,11 @@ class ChangeDB extends BaseMiddleware
     {
         // $user = auth('api')->user();
         // $miyao = $user->miyao;
-        $miyao = "gantt";
+        $miyao = $request->miyao;
+        if ($miyao == null) {
+            $miyao = "gantt";
+        }
+
         //数据库
         $db = DB::table('dbConect')->where('miyao', $miyao)->first();
 
