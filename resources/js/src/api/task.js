@@ -2,7 +2,7 @@
 import http from '@/utils/http'
 
 export default {
-  getTask: () => {
-    return http.get('task', {}, true)
+  getTask: (miyao) => {
+    return http.get('task', { miyao }, true)
   }
 }

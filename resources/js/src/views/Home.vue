@@ -57,6 +57,7 @@ export default {
   },
   data() {
     return {
+      miyao: "",
       task: [],
       chartStart: "",
       chartEnd: "",
@@ -80,6 +81,11 @@ export default {
   },
   computed: {},
   mounted: function() {
+    let query = this.$route.query;
+    // if (query.hasOwnProperty("miyao")) {
+    if (Object.prototype.hasOwnProperty.call(query, "miyao")) {
+      this.miyao = query.miyao;
+    }
     this.getTask();
   },
   methods: {
@@ -98,7 +104,7 @@ export default {
       // }, 3000);
     },
     getTask() {
-      Api.getTask().then(res => {
+      Api.getTask(this.miyao).then(res => {
         this.task = res.data.task;
         this.setTaskFormat(res.data.task);
       });
