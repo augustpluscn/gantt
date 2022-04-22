@@ -11,6 +11,11 @@ const routes = [
     component: Home
   },
   {
+    path: '/gantt',
+    name: 'Gantt',
+    component: () => import('../views/Gantt.vue')
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('../views/login/Login.vue')

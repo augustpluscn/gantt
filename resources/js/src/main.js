@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import vGanttChart from 'v-gantt-chart';
+
 // 引入全局样式
 import '@/assets/css/index.scss'
 
@@ -12,6 +14,7 @@ import vuetify from '@/plugins/vuetify'
 // import '@/permission'
 
 Vue.config.productionTip = false
+Vue.use(vGanttChart);
 
 new Vue({
   router,
