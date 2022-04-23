@@ -135,10 +135,11 @@ export default {
           };
           if (element.上机时间) {
             time = moment(element.上机时间);
+            chartStart = moment.min(chartStart, moment(element.上机时间));
           } else {
             time = moment();
+            chartStart = moment.min(chartStart, moment());
           }
-          chartStart = moment.min(chartStart, time);
           lastDevice = element.机台编号;
         }
         minute =

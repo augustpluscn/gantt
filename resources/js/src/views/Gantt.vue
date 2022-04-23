@@ -125,6 +125,8 @@ export default {
         tastArr.push({
           id: element.任务单号,
           name: element.产品规格,
+          cus: element.CompSimple,
+          qty: element.数量 - element.完成数量,
           passenger: 100,
           start: tmpStart,
           end: tmpEnd

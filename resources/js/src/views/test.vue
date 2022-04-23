@@ -3,8 +3,8 @@
     :title="title"
     :style="{'background-color':statusColor}" @click="onClick">
     <div class="runTime">
-      <span>起{{moment(item.start).format("HH:mm")}}</span>
-      <span>至{{moment(item.end).format("HH:mm")}}</span>
+      <!-- <span>起{{moment(item.start).format("HH:mm")}}</span>
+      <span>至{{moment(item.end).format("HH:mm")}}</span> -->
     </div>
     <div class="middle">{{item.name}}</div>
     <div class="passenger"></div>
@@ -33,8 +33,12 @@ export default {
         moment(this.item.start).format("HH:mm") +
         "~" +
         moment(this.item.end).format("HH:mm") +
-        "  " +
-        this.item.name
+        "\r\n" +
+        this.item.name +
+        "\r\n客户:" +
+        this.item.cus +
+        "\r\n数量:" +
+        this.item.qty
       );
     },
     statusColor() {
